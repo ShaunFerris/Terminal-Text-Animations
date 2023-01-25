@@ -104,7 +104,7 @@ def loading_dots(timer):
     count = 0
     while count < timer:
         try:
-            sys.stdout.write("\033[?25l")
+            sys.stdout.write("\033[?25l")#removes the terminal cursor
             sys.stdout.flush()
             frames = ['   ', '.', '..', '...']
             for i in range(0, 4):
