@@ -27,6 +27,8 @@ def get_progress_bar(progress, total, bar_width = 40):
 
 
 def job_simulation(job_size=100):
+    '''Simulate a job to test the progress bar function.
+    Also provides boilerplate for implementing the progress bar.'''
     downloaded = 0
     while downloaded < job_size:
         downloaded += random.randint(0, 100)
@@ -37,6 +39,7 @@ def job_simulation(job_size=100):
 
 
 def spinner_bar(timer):
+    '''Animate a spinning bar in place to represent loading progress.'''
     spinner_frames = '|/-\\'
     count = 0
     try:
@@ -53,10 +56,13 @@ def spinner_bar(timer):
 
 
 def text_crawl(txt):
+    '''Function to make supplied text crawl from left to right
+    across the terminal similar to a chiron on a news broadcast.
+    TODO: refactor.'''
+
     letter_list = [i for i in txt]
     display_str = ''
     WIDTH = shutil.get_terminal_size()[0]
-
     count = 1
     count_2 = 1
     try:
@@ -92,6 +98,9 @@ def text_crawl(txt):
         sys.exit()
 
 def ghost_type(txt):
+    '''Displays the supplied text letter by letter as if it
+    is being typed. '''
+
     try:
         for i in txt:
             print(i, end='', flush=True)
@@ -101,6 +110,9 @@ def ghost_type(txt):
 
 
 def loading_dots(timer):
+    '''Another animated loading sequence, 
+    using a growing and shirinking string of elipses.'''
+
     count = 0
     while count < timer:
         try:
@@ -118,14 +130,25 @@ def loading_dots(timer):
 
 
 def center_print(txt):
+    '''Prints the supplied text centered in the current terminal
+    window.'''
+
     print(txt.center(shutil.get_terminal_size().columns))
 
 
 def clear_line():
+    '''Clear current line and carriage return the cursor.
+    Used for printing mulitiple lines of text one after the
+    other in place.'''
+
     WIDTH = shutil.get_terminal_size()[0]
     print('\r' + ' ' * WIDTH, end='\r', flush=True)
 
 def binary_wipe():
+    '''Animated transition.
+    Fills the terminal window with growing strings of 1 and 0
+    then wipes all content from the terminal.'''
+
     WIDTH = shutil.get_terminal_size()[0]
     HEIGHT = shutil.get_terminal_size()[1]
     char_list = ['0', '1', ' ']
