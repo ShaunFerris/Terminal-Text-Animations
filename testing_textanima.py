@@ -3,8 +3,6 @@ also added binary wipe
 need to double check that I have finished adding functionality to all looping animations to allow them to be interrupted by 
 the script they're called in'''
 
-
-import time, sys, shutil, random,  os
 from textanima import loading_dots, clear_line
 
 test = 0
