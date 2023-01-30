@@ -29,6 +29,7 @@ def get_progress_bar(progress, total, bar_width = 40):
 def job_simulation(job_size=100):
     '''Simulate a job to test the progress bar function.
     Also provides boilerplate for implementing the progress bar.'''
+    
     downloaded = 0
     while downloaded < job_size:
         downloaded += random.randint(0, 100)
@@ -153,13 +154,11 @@ def binary_wipe():
     HEIGHT = shutil.get_terminal_size()[1]
     char_list = ['0', '1', ' ']
     display_str = ''
-
     for i in range(HEIGHT):
         for i in range(WIDTH):
             display_str += random.choice(char_list)
         print(display_str, end='', flush=True)
         time.sleep(0.05)
-
     if sys.platform == 'win32':
         os.system('cls')
     else:
