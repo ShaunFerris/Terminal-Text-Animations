@@ -2,7 +2,7 @@
 project for an animated progress bar and a simulated download as an application of that function.
 I have added some additional functions for text based animations for use in other projects'''
 
-'''TODO: Code review, git init, push to git hub'''
+'''TODO: Code review'''
 
 import random, time, sys, shutil, re, os
 
@@ -41,6 +41,7 @@ def job_simulation(job_size=100):
 
 def spinner_bar(timer):
     '''Animate a spinning bar in place to represent loading progress.'''
+    
     spinner_frames = '|/-\\'
     count = 0
     try:
@@ -163,3 +164,28 @@ def binary_wipe():
         os.system('cls')
     else:
         os.system('clear')
+
+def text_decrypt(text, iterations):
+    '''Animation of a random string of letters cycling through
+    letters until one by one they land on the correct letter to 
+    spell out the word to display.
+    
+    Takes the display word, and a number of iterations as arguments.'''
+
+    LETTERS = [chr(c) for c in range(97, 123)]
+
+    def generate_str(length):
+        return ''.join(random.choices(LETTERS, k=length))
+
+    for i in range(0, iterations):
+        time.sleep(0.08)
+        if i <= iterations - len(text):
+            print(generate_str(length=len(text)), end='\r', flush=True)
+        else:
+            time.sleep(0.01)
+            print(
+                text[0: i - len(text) - 1] + generate_str(length=(len(text) - i)),
+                end='\r',
+                flush=True
+                )
+    return print(text)

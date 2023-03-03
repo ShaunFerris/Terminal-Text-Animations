@@ -1,14 +1,7 @@
-'''Currently testing a function to animate a string to indicate loading with cycling elipses - completed
-also added binary wipe
-need to double check that I have finished adding functionality to all looping animations to allow them to be interrupted by 
-the script they're called in'''
+'''Document for testing the various animation functions in textanima.py
+with different parameters before implementation in other projects.
+'''
 
-from textanima import loading_dots, clear_line
+from textanima import text_decrypt
 
-test = 0
-print('Loading', end='', flush=True)
-while test < 2:
-    loading_dots(1)
-    test += 1
-clear_line()
-print('Done!')
+text_decrypt('this is a test', 30)
